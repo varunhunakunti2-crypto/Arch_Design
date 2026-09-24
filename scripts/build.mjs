@@ -247,7 +247,7 @@ for (const f of htmlFiles) {
     if (!/<meta property="og:image"/.test(html)) fail(`${f}: missing og:image`);
     if (!/<meta name="twitter:card"/.test(html)) fail(`${f}: missing twitter:card`);
   }
-  if (!/assets\/favicon\.svg/.test(html)) fail(`${f}: missing favicon.svg`);
+  if (!/<link rel="icon"[^>]*>/i.test(html)) fail(`${f}: missing <link rel="icon">`);
   if (!/rel="apple-touch-icon"/.test(html) && !isError) fail(`${f}: missing apple-touch-icon`);
   if ((html.match(/<h1[\s>]/g) || []).length !== 1) fail(`${f}: expected exactly one h1`);
   if (/localhost|127\.0\.0\.1|file:\/\/|C:\\|C:\//.test(html)) fail(`${f}: development-only URL detected`);
