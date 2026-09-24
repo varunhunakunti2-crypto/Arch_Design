@@ -1,5 +1,5 @@
 # Build output
-dist/
+frontend/dist/
 
 # Agent tooling / local editor config
 .agents/
