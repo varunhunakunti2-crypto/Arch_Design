@@ -1,0 +1,17 @@
+{
+  "siteName": "NORDIC",
+  "baseUrl": "https://www.nordicstudio.com",
+  "email": "hello@nordicstudio.com",
+  "routes": [
+    { "path": "/", "priority": 1.0, "changefreq": "weekly" },
+    { "path": "/about/", "priority": 0.5, "changefreq": "monthly" },
+    { "path": "/services/", "priority": 0.8, "changefreq": "monthly" },
+    { "path": "/projects/", "priority": 0.9, "changefreq": "weekly" },
+    { "path": "/projects/vestfold-kulturhus/", "priority": 0.7, "changefreq": "yearly" },
+    { "path": "/projects/brygge-apartments/", "priority": 0.7, "changefreq": "yearly" },
+    { "path": "/projects/villa-granberg/", "priority": 0.7, "changefreq": "yearly" },
+    { "path": "/projects/lumen-pavilion/", "priority": 0.7, "changefreq": "yearly" },
+    { "path": "/offices/", "priority": 0.6, "changefreq": "monthly" },
+    { "path": "/contact/", "priority": 0.8, "changefreq": "monthly" }
+  ]
+}

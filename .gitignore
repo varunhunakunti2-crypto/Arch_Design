@@ -1,0 +1,19 @@
+# Build output
+dist/
+
+# Agent tooling / local editor config
+.agents/
+.claude/
+skills/
+skills-lock.json
+
+# One-off development scratch scripts
+replace_favicon.js
+replace_logo.js
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+
+# Local config (if a private endpoint is supplied at build time)
+*.local

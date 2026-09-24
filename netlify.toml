@@ -1,0 +1,85 @@
+# NORDIC production deployment.
+# Platform: Netlify. publish = ./dist (assembled by scripts/build.mjs).
+
+[build]
+  command = "node scripts/build.mjs"
+  publish = "dist"
+
+# --- Clean-URL redirects (non-slash -> canonical trailing slash) -------------
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/services"
+  to = "/services/"
+  status = 301
+
+[[redirects]]
+  from = "/projects"
+  to = "/projects/"
+  status = 301
+
+[[redirects]]
+  from = "/projects/vestfold-kulturhus"
+  to = "/projects/vestfold-kulturhus/"
+  status = 301
+
+[[redirects]]
+  from = "/projects/brygge-apartments"
+  to = "/projects/brygge-apartments/"
+  status = 301
+
+[[redirects]]
+  from = "/projects/villa-granberg"
+  to = "/projects/villa-granberg/"
+  status = 301
+
+[[redirects]]
+  from = "/projects/lumen-pavilion"
+  to = "/projects/lumen-pavilion/"
+  status = 301
+
+[[redirects]]
+  from = "/offices"
+  to = "/offices/"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/"
+  status = 301
+
+# --- Security headers --------------------------------------------------------
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# --- Caching: code revalidates, imagery is immutable -------------------------
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
